@@ -3,111 +3,343 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Brewtastic Bros - Brewery & Pickup</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Brewtastic Bros - Craft Beer Pickup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #f39c12;
+            --secondary-color: #34495e;
+            --text-color: #2c3e50;
+            --background-color: #ecf0f1;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo h1 {
+            font-size: 2.5rem;
+            color: #fff;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: flex-end;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .hero {
+            background: url('https://source.unsplash.com/1600x900/?brewery') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding-top: 80px;
+        }
+        
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .beer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .beer-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .beer-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .beer-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .beer-info {
+            padding: 20px;
+        }
+        
+        .beer-info h3 {
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .beer-info p {
+            margin-bottom: 15px;
+        }
+        
+        .beer-price {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .reviews {
+            background-color: var(--secondary-color);
+            color: #fff;
+        }
+        
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .review-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .review-card p {
+            font-style: italic;
+        }
+        
+        .review-card strong {
+            display: block;
+            margin-top: 10px;
+        }
+        
+        .order-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <div class="logo">
-            <h1>Brewtastic Bros</h1>
-            <p>Craft Beer, Freshly Brewed, Ready for Pickup!</p>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <h1>Brewtastic Bros</h1>
+                </div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#beers">Our Beers</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#order">Order Pickup</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#menu">Our Beers</a></li>
-                <li><a href="#reviews">Reviews</a></li>
-                <li><a href="#order">Order Pickup</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <section id="home">
-        <h2>Welcome to Brewtastic Bros Brewery!</h2>
-        <p>Experience the best craft beers around. Order online and pick up your favorites today!</p>
-    </section>
-
-    <section id="menu">
-        <h2>Our Beers</h2>
-        <div class="beer-list">
-            <div class="beer-item">
-                <h3>Pale Ale</h3>
-                <p>A crisp and refreshing pale ale, with a citrusy kick!</p>
-                <p><strong>$10</strong></p>
-            </div>
-            <div class="beer-item">
-                <h3>IPA</h3>
-                <p>A hoppy IPA with bold, tropical flavors.</p>
-                <p><strong>$12</strong></p>
-            </div>
-            <div class="beer-item">
-                <h3>Stout</h3>
-                <p>A rich and smooth stout with a hint of coffee.</p>
-                <p><strong>$14</strong></p>
-            </div>
-            <div class="beer-item">
-                <h3>Lager</h3>
-                <p>A light and crisp lager, perfect for any occasion.</p>
-                <p><strong>$9</strong></p>
-            </div>
-            <div class="beer-item">
-                <h3>Wheat Beer</h3>
-                <p>A smooth, refreshing wheat beer with a touch of sweetness.</p>
-                <p><strong>$11</strong></p>
-            </div>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Welcome to Brewtastic Bros Brewery</h2>
+            <p>Experience the best craft beers around. Order online and pick up your favorites today!</p>
         </div>
     </section>
 
-    <section id="reviews">
-        <h2>Customer Reviews</h2>
-        <div class="review">
-            <p><strong>John D.</strong>: "The IPA is amazing! Definitely coming back for more."</p>
-        </div>
-        <div class="review">
-            <p><strong>Amy L.</strong>: "I love the Pale Ale. Great taste, easy to drink."</p>
-        </div>
-        <div class="review">
-            <p><strong>Chris P.</strong>: "The Stout is smooth and rich. A perfect beer for cold nights!"</p>
+    <section id="beers" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Beers</h2>
+            <div class="beer-grid">
+                <div class="beer-card">
+                    <img src="https://source.unsplash.com/400x300/?pale-ale" alt="Pale Ale">
+                    <div class="beer-info">
+                        <h3>Pale Ale</h3>
+                        <p>A crisp and refreshing pale ale, with a citrusy kick!</p>
+                        <p class="beer-price">$10</p>
+                    </div>
+                </div>
+                <div class="beer-card">
+                    <img src="https://source.unsplash.com/400x300/?ipa" alt="IPA">
+                    <div class="beer-info">
+                        <h3>IPA</h3>
+                        <p>A hoppy IPA with bold, tropical flavors.</p>
+                        <p class="beer-price">$12</p>
+                    </div>
+                </div>
+                <div class="beer-card">
+                    <img src="https://source.unsplash.com/400x300/?stout" alt="Stout">
+                    <div class="beer-info">
+                        <h3>Stout</h3>
+                        <p>A rich and smooth stout with a hint of coffee.</p>
+                        <p class="beer-price">$14</p>
+                    </div>
+                </div>
+                <div class="beer-card">
+                    <img src="https://source.unsplash.com/400x300/?lager" alt="Lager">
+                    <div class="beer-info">
+                        <h3>Lager</h3>
+                        <p>A light and crisp lager, perfect for any occasion.</p>
+                        <p class="beer-price">$9</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="order">
-        <h2>Order Online for Pickup</h2>
-        <form action="/process-order" method="POST">
-            <label for="beer">Select Beer:</label>
-            <select id="beer" name="beer">
-                <option value="pale-ale">Pale Ale</option>
-                <option value="ipa">IPA</option>
-                <option value="stout">Stout</option>
-                <option value="lager">Lager</option>
-                <option value="wheat-beer">Wheat Beer</option>
-            </select>
-            <br>
+    <section id="reviews" class="section reviews">
+        <div class="container">
+            <h2 class="section-title">Customer Reviews</h2>
+            <div class="review-grid">
+                <div class="review-card">
+                    <p>"The IPA is amazing! Definitely coming back for more."</p>
+                    <strong>John D.</strong>
+                </div>
+                <div class="review-card">
+                    <p>"I love the Pale Ale. Great taste, easy to drink."</p>
+                    <strong>Amy L.</strong>
+                </div>
+                <div class="review-card">
+                    <p>"The Stout is smooth and rich. A perfect beer for cold nights!"</p>
+                    <strong>Chris P.</strong>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" min="1" value="1" required>
-            <br>
-
-            <label for="card-number">Card Number:</label>
-            <input type="text" id="card-number" name="card-number" required>
-            <br>
-
-            <label for="expiry">Expiry Date:</label>
-            <input type="month" id="expiry" name="expiry" required>
-            <br>
-
-            <label for="cvv">CVV:</label>
-            <input type="text" id="cvv" name="cvv" required>
-            <br>
-
-            <button type="submit">Place Order</button>
-        </form>
+    <section id="order" class="section">
+        <div class="container">
+            <h2 class="section-title">Order Online for Pickup</h2>
+            <form class="order-form" action="/process-order" method="POST">
+                <div class="form-group">
+                    <label for="beer">Select Beer:</label>
+                    <select id="beer" name="beer">
+                        <option value="pale-ale">Pale Ale</option>
+                        <option value="ipa">IPA</option>
+                        <option value="stout">Stout</option>
+                        <option value="lager">Lager</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="card-number">Card Number:</label>
+                    <input type="text" id="card-number" name="card-number" required>
+                </div>
+                <div class="form-group">
+                    <label for="expiry">Expiry Date:</label>
+                    <input type="month" id="expiry" name="expiry" required>
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" required>
+                </div>
+                <button type="submit" class="btn">Place Order</button>
+            </form>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Brewtastic Bros Brewery. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2025 Brewtastic Bros Brewery. All rights reserved.</p>
+        </div>
     </footer>
-
 </body>
 </html>
