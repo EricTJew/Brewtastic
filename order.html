@@ -82,6 +82,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
+            margin-bottom: 40px;
         }
         
         .beer-card {
@@ -232,8 +233,7 @@
                     </div>
                 </div>
             </div>
-            
-            <form class="order-form" action="/process-order" method="POST">
+            <form id="orderForm" class="order-form">
                 <div class="form-group">
                     <label for="beer">Select Beer:</label>
                     <select id="beer" name="beer" required>
@@ -272,19 +272,18 @@
         </div>
     </footer>
 
-    <form id="orderForm" method="post">
-        <!-- Your form fields here -->
-        <button type="submit">Place Order</button>
-    </form>
-
     <script>
-        document.getElementById('orderForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            // Your form submission logic here
-            // Redirect to confirmation page
-            window.location.href = 'order-confirmation.html';
+        document.addEventListener('DOMContentLoaded', function () {
+            const orderForm = document.getElementById('orderForm');
+
+            orderForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                
+                console.log("Processing order...");
+                
+                window.location.href = 'order-confirmation.html';
+            });
         });
     </script>
 </body>
 </html>
-
