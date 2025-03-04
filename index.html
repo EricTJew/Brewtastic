@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brewtastic Bros - Craft Beer Pickup</title>
+    <title>Brewtastic Bros - Craft Beer Brewery</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -168,33 +168,6 @@
             margin-top: 10px;
         }
         
-        .order-form {
-            max-width: 500px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-        
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        
         .btn {
             display: inline-block;
             background-color: var(--primary-color);
@@ -202,7 +175,8 @@
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
             transition: background-color 0.3s ease;
         }
         
@@ -215,46 +189,6 @@
             color: #fff;
             text-align: center;
             padding: 20px 0;
-        }
-        
-        .parallax {
-            height: 100vh;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .beer1 {
-            background-image: url('images/pale-ale.jpg');
-        }
-        
-        .beer2 {
-            background-image: url('images/ipa.jpg');
-        }
-        
-        .beer3 {
-            background-image: url('images/stout.jpg');
-        }
-        
-        .parallax-content {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        
-        .parallax-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .parallax-content p {
-            font-size: 1.2rem;
         }
     </style>
 </head>
@@ -269,7 +203,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#beers">Our Beers</a></li>
                     <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#order">Order Pickup</a></li>
+                    <li><a href="order.html">Order Pickup</a></li>
                 </ul>
             </nav>
         </div>
@@ -279,13 +213,7 @@
         <div class="hero-content">
             <h2>Welcome to Brewtastic Bros Brewery</h2>
             <p>Experience the best craft beers around. Order online and pick up your favorites today!</p>
-        </div>
-    </section>
-
-    <section class="parallax beer1">
-        <div class="parallax-content">
-            <h2>Crisp Pale Ale</h2>
-            <p>A refreshing brew with citrusy notes</p>
+            <a href="order.html" class="btn">Order Now</a>
         </div>
     </section>
 
@@ -329,13 +257,6 @@
         </div>
     </section>
 
-    <section class="parallax beer2">
-        <div class="parallax-content">
-            <h2>Bold IPA</h2>
-            <p>Hoppy goodness with tropical flavors</p>
-        </div>
-    </section>
-
     <section id="reviews" class="section reviews">
         <div class="container">
             <h2 class="section-title">Customer Reviews</h2>
@@ -356,16 +277,10 @@
         </div>
     </section>
 
-    <section class="parallax beer3">
-        <div class="parallax-content">
-            <h2>Rich Stout</h2>
-            <p>Smooth and dark with coffee undertones</p>
-        </div>
-    </section>
-
-    <section id="order" class="section">
+    <footer>
         <div class="container">
-            <h2 class="section-title">Order Online for Pickup</h2>
-            <form class="order-form" action="/process-order" method="POST">
-                <div class="form-group">
-                    <label for="beer">Select Beer:</label>
+            <p>&copy; 2025 Brewtastic Bros Brewery. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
