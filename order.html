@@ -271,6 +271,20 @@
             <p>&copy; 2025 Brewtastic Bros Brewery. All rights reserved.</p>
         </div>
     </footer>
+
+    <form id="orderForm" method="post">
+        <!-- Your form fields here -->
+        <button type="submit">Place Order</button>
+    </form>
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Your form submission logic here
+            // Redirect to confirmation page
+            window.location.href = 'order-confirmation.html';
+        });
+    </script>
 </body>
 </html>
 
