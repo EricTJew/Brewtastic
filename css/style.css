@@ -16,7 +16,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     /*background-color: var(--background-color);*/ /* Remove this if you only want the image */
-    background-image: url("images/BeerBarrel.jpeg"); /* Replace with your image URL */
+    background-image: url("images/Field.jpeg"); /* Replace with your image URL */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
