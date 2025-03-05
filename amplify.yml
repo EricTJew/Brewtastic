@@ -1,0 +1,20 @@
+version: 1.0
+backend:
+  phases:
+    build:
+      commands:
+        - echo "Replacing API_ENDPOINT placeholder"
+        - sed -i "s|YOUR_API_GATEWAY_ENDPOINT|'${API_ENDPOINT}'|g" contact.html
+frontend:
+  phases:
+    build:
+      commands:
+        - npm install
+        - npm run build
+  artifacts:
+    baseDirectory: /
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
