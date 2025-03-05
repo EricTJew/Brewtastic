@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Brewtastic Bros - Brewery & Pickup</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Brewtastic Bros</h1>
+            <p>Craft Beer, Freshly Brewed, Ready for Pickup!</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Our Beers</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#order">Order Pickup</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Welcome to Brewtastic Bros Brewery!</h2>
+        <p>Experience the best craft beers around. Order online and pick up your favorites today!</p>
+    </section>
+
+    <section id="menu">
+        <h2>Our Beers</h2>
+        <div class="beer-list">
+            <div class="beer-item">
+                <h3>Pale Ale</h3>
+                <p>A crisp and refreshing pale ale, with a citrusy kick!</p>
+                <p><strong>$10</strong></p>
+            </div>
+            <div class="beer-item">
+                <h3>IPA</h3>
+                <p>A hoppy IPA with bold, tropical flavors.</p>
+                <p><strong>$12</strong></p>
+            </div>
+            <div class="beer-item">
+                <h3>Stout</h3>
+                <p>A rich and smooth stout with a hint of coffee.</p>
+                <p><strong>$14</strong></p>
+            </div>
+            <div class="beer-item">
+                <h3>Lager</h3>
+                <p>A light and crisp lager, perfect for any occasion.</p>
+                <p><strong>$9</strong></p>
+            </div>
+            <div class="beer-item">
+                <h3>Wheat Beer</h3>
+                <p>A smooth, refreshing wheat beer with a touch of sweetness.</p>
+                <p><strong>$11</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews">
+        <h2>Customer Reviews</h2>
+        <div class="review">
+            <p><strong>John D.</strong>: "The IPA is amazing! Definitely coming back for more."</p>
+        </div>
+        <div class="review">
+            <p><strong>Amy L.</strong>: "I love the Pale Ale. Great taste, easy to drink."</p>
+        </div>
+        <div class="review">
+            <p><strong>Chris P.</strong>: "The Stout is smooth and rich. A perfect beer for cold nights!"</p>
+        </div>
+    </section>
+
+    <section id="order">
+        <h2>Order Online for Pickup</h2>
+        <form action="/process-order" method="POST">
+            <label for="beer">Select Beer:</label>
+            <select id="beer" name="beer">
+                <option value="pale-ale">Pale Ale</option>
+                <option value="ipa">IPA</option>
+                <option value="stout">Stout</option>
+                <option value="lager">Lager</option>
+                <option value="wheat-beer">Wheat Beer</option>
+            </select>
+            <br>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+            <br>
+
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" name="card-number" required>
+            <br>
+
+            <label for="expiry">Expiry Date:</label>
+            <input type="month" id="expiry" name="expiry" required>
+            <br>
+
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" required>
+            <br>
+
+            <button type="submit">Place Order</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Brewtastic Bros Brewery. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
