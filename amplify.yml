@@ -4,7 +4,7 @@ backend:
     build:
       commands:
         - echo "Replacing API_ENDPOINT placeholder"
-        - sed -i "s|YOUR_API_GATEWAY_ENDPOINT|'${API_ENDPOINT}'|g" contact.html
+        - sed -i "s|https://8e658lywa6.execute-api.us-east-1.amazonaws.com/prod|'${API_ENDPOINT}'|g" contact.html
 frontend:
   phases:
     build:
