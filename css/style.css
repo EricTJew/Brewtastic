@@ -38,6 +38,7 @@ header {
 }
 
 .logo h1 {
+    font-family: 'Brush Script MT', cursive;
     font-size: 2.5rem;
     color: #fff;
 }
