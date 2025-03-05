@@ -15,6 +15,7 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
+    /* background-color: var(--background-color);  Remove this if you only want the image */
     background-image: url("images/Field.jpeg"); /* Replace with your image URL */
     background-size: cover;
     background-position: center;
@@ -65,7 +66,7 @@ nav ul li a:hover {
 }
 
 .hero {
-    background: url('images/Field.jpeg') no-repeat center center/cover;
+    /* background: url('images/Field.jpeg') no-repeat center center/cover; */
     height: 100vh;
     display: flex;
     align-items: center;
