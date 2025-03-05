@@ -113,7 +113,6 @@ nav ul li a:hover {
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    position: relative; /* Needed for absolute positioning of scrolling elements */
 }
 
 .beer-card:hover {
@@ -259,35 +258,29 @@ footer {
     background-color: var(--secondary-color);
 }
 
-/* CSS for the scrolling image effect */
-.scrolling-image-container {
-    width: 100%;
-    /* Adjust as needed */
-    height: 200px;
-    /* Match the image height */
+/* CSS for the scrolling beer cards */
+.scrolling-beers {
+    display: flex; /* Arrange beer-card elements horizontally */
+    overflow: hidden; /* Hide overflowing beer-card elements */
+    animation: scrollBeers 30s linear infinite; /* Animate the scrolling */
+    width: fit-content; /* Make container wide enough to hold all beer-card elements */
+}
+
+.beer-card {
+    flex: none; /* Prevent beer-card elements from shrinking or growing */
+    width: 250px; /* Set a fixed width for beer-card elements */
+    margin-right: 30px; /* Add spacing between beer-card elements */
+    border-radius: 10px;
     overflow: hidden;
-    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-.scrolling-image {
-    width: 100%;
-    /* Make the image wider than the container */
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    animation: scrollImage 20s linear infinite;
-    /* Adjust duration for speed */
-    object-fit: cover; /* Maintain aspect ratio and cover the area */
-}
-
-@keyframes scrollImage {
+@keyframes scrollBeers {
     0% {
-        transform: translateX(0%);
+        transform: translateX(0%); /* Start at original position */
     }
-
     100% {
-        transform: translateX(100%);
-        /* Adjust if the image is wider than the container */
+        transform: translateX(-50%); /* Move all beer-card elements to the left */
     }
 }
