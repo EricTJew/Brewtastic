@@ -16,11 +16,13 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     /* background-color: var(--background-color);  Remove this if you only want the image */
-    background-image: url("images/Field.jpeg"); /* Replace with your image URL */
+    background-image: url("images/Field.jpeg");
+    /* Replace with your image URL */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Optional: Keeps the background fixed during scroll */
+    background-attachment: fixed;
+    /* Optional: Keeps the background fixed during scroll */
 }
 
 .container {
@@ -111,6 +113,7 @@ nav ul li a:hover {
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    position: relative; /* Needed for absolute positioning of scrolling elements */
 }
 
 .beer-card:hover {
@@ -193,11 +196,13 @@ footer {
 /* Contact Form Styles (Add these to your style.css) */
 .contact-form-section {
     padding: 80px 0;
-    background-color: var(--background-color); /* Or any background you prefer */
+    background-color: var(--background-color);
+    /* Or any background you prefer */
 }
 
 .contact-form-section .container {
-    max-width: 800px; /* Adjust the width as needed */
+    max-width: 800px;
+    /* Adjust the width as needed */
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
@@ -231,7 +236,8 @@ footer {
 }
 
 .contact-form-section textarea {
-    resize: vertical; /* Allows vertical resizing of the textarea */
+    resize: vertical;
+    /* Allows vertical resizing of the textarea */
 }
 
 .contact-form-section button[type="submit"] {
@@ -245,9 +251,43 @@ footer {
     text-decoration: none;
     font-weight: 600;
     transition: background-color 0.3s ease;
-    cursor: pointer; /* Change cursor to pointer on hover */
+    cursor: pointer;
+    /* Change cursor to pointer on hover */
 }
 
 .contact-form-section button[type="submit"]:hover {
     background-color: var(--secondary-color);
+}
+
+/* CSS for the scrolling image effect */
+.scrolling-image-container {
+    width: 100%;
+    /* Adjust as needed */
+    height: 200px;
+    /* Match the image height */
+    overflow: hidden;
+    position: relative;
+}
+
+.scrolling-image {
+    width: 100%;
+    /* Make the image wider than the container */
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: scrollImage 20s linear infinite;
+    /* Adjust duration for speed */
+    object-fit: cover; /* Maintain aspect ratio and cover the area */
+}
+
+@keyframes scrollImage {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(100%);
+        /* Adjust if the image is wider than the container */
+    }
 }
