@@ -29,20 +29,19 @@
     <section class="contact-form-section">
         <div class="container">
             <h2>Contact Us</h2>
-            <p>Have questions or need assistance?  Send us a message!</p>
+            <p>Have questions or need assistance? Send us a message!</p>
             <form id="contactForm">
-    <label for="name">Your Name:</label>
-    <input type="text" id="name" name="name" required>
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
 
-    <label for="email">Your Email:</label>
-    <input type="email" id="email" name="email" required>
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
 
-    <label for="message">Message:</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
 
-    <button type="submit" class="btn">Send Message</button>
-</form>
-
+                <button type="submit" class="btn">Send Message</button>
+            </form>
         </div>
     </section>
 
@@ -51,41 +50,45 @@
             <p>&copy; 2025 Brewtastic Bros Brewery. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- JavaScript moved inside a proper <script> tag -->
+    <script>
     document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contactForm');
+        const contactForm = document.getElementById('contactForm');
 
-    contactForm.addEventListener('submit', function(event) {
-        event.preventDefault();
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
 
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
 
-        // Replace with your actual API Gateway endpoint URL
-        const apiUrl = 'https://l9mdgzwkwb.execute-api.us-east-1.amazonaws.com';
+            // Ensure this URL includes the full API Gateway Invoke URL
+            const apiUrl = 'https://l9mdgzwkwb.execute-api.us-east-1.amazonaws.com/prod/contact'; 
 
-        fetch(apiUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: name,
-                email: email,
-                message: message
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    message: message
+                })
             })
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert(data.message); // Show success or error message
-            contactForm.reset(); // Clear the form
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Failed to send message. Please try again.');
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message); // Show success or error message
+                contactForm.reset(); // Clear the form
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to send message. Please try again.');
+            });
         });
     });
-});
+    </script>
 
 </body>
 </html>
