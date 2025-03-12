@@ -1,4 +1,4 @@
-import { Amplify, Auth } from 'aws-amplify';
+const { Amplify, Auth } = aws_amplify;
 
 // Configure Amplify
 Amplify.configure({
