@@ -1,5 +1,6 @@
-import { Amplify } from 'aws-amplify';
+import { Amplify, Auth } from 'aws-amplify';
 
+// Configure Amplify
 Amplify.configure({
   Auth: {
     region: 'us-east-1',
@@ -9,4 +10,17 @@ Amplify.configure({
   }
 });
 
-// Your app initialization code here
+// Basic function to check if a user is signed in
+async function checkUser() {
+  try {
+    const user = await Auth.currentAuthenticatedUser();
+    console.log('User is signed in:', user);
+  } catch (error) {
+    console.log('No user signed in');
+  }
+}
+
+// Call the function when the page loads
+window.onload = checkUser;
+
+// Your other app code can go here
